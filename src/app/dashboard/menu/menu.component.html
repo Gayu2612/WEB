@@ -1,5 +1,4 @@
-<!-- <app-nav-bar></app-nav-bar>
- <app-side-nav></app-side-nav> -->
+
 
  <mat-sidenav-container>
   <mat-sidenav [(opened)]="opened" mode="side">
@@ -10,12 +9,14 @@
     <!-- <button (click)="opened = !opened" mat-icon-button color="accent" aria-label="Example icon button with a menu icon">
       <mat-icon>menu</mat-icon>
     </button> -->
-    <div class="example-button-container">
+
+    <div class="example-button-container d-flex">
       <button (click)="opened = !opened" mat-mini-fab color="primary" aria-label="Example icon button with a menu icon">
         <mat-icon>menu</mat-icon>
       </button>
-    </div>
+      </div>
     <app-nav-bar></app-nav-bar>
+
     <router-outlet></router-outlet>
     <!-- <app-footer></app-footer> -->
   </mat-sidenav-content>
