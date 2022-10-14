@@ -11,14 +11,14 @@ export class AuthService {
   private baseUrl = environment.apiUrl +'/register';
   private baseUrl1 = environment.apiUrl +'/login';
 
-   private currentUserSubject: BehaviorSubject<Login>;
-   public currentUser:Observable<Login>
+  //  private currentUserSubject: BehaviorSubject<Login>;
+  //  public currentUser:Observable<Login>
 
-  public UserDetails: any;
+  public Userdetails: any;
 
   constructor(private http:HttpClient) {
-    this.currentUserSubject = new BehaviorSubject<Login>(JSON.parse(localStorage.getItem('currentUser')||'-'));
-    this.currentUser = this.currentUserSubject.asObservable();
+    // this.currentUserSubject = new BehaviorSubject<Login>(JSON.parse(localStorage.getItem('currentUser')||'-'));
+    // this.currentUser = this.currentUserSubject.asObservable();
   }
 
 
@@ -28,16 +28,23 @@ export class AuthService {
   postLogin(data:any){
     return this.http.post(`${this.baseUrl1}`,data).pipe(map((res:any)=>{
 
-      if(res && res.result.token){
-        this.UserDetails= res?.result.UserDetails;
+      // console.log('res',res);
 
-        console.log('this.UserDetails',  this.UserDetails);
+//       this.UserDetails=res?.result?.userDetails;
+
+// console.log('UserDetails',this.UserDetails);
+
+      if(res && res.result.token){
+        // console.log('res',res);
+        this.Userdetails= res?.result?.userDetails        ;
+
+        // console.log('UserDetails',  this.Userdetails);
 
         localStorage.setItem('token',res.result?.token);
-        localStorage.setItem('currentUser',JSON.stringify(res.result.UserDetails))
+        localStorage.setItem('currentUser',JSON.stringify(res.result?.userDetails))
 
-        let name = this.UserDetails?.userName
-        this.currentUserSubject.next(this.UserDetails);
+        let name = this.Userdetails?.userName
+        // this.currentUserSubject.next(this.UserDetails);
       }
       return res;
     }))
