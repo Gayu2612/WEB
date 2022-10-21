@@ -38,11 +38,10 @@ export class AuthService {
         // console.log('res',res);
         this.Userdetails= res?.result?.userDetails        ;
 
-        // console.log('UserDetails',  this.Userdetails);
-
+        console.log('UserDetails',  this.Userdetails);
+        localStorage.setItem('logintype',res?.result?.loginType)
         localStorage.setItem('token',res.result?.token);
         localStorage.setItem('currentUser',JSON.stringify(res.result?.userDetails))
-
         let name = this.Userdetails?.userName
         // this.currentUserSubject.next(this.UserDetails);
       }
