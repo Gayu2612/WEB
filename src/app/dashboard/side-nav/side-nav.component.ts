@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SideNavComponent implements OnInit {
   showFiller = false;
+  public logintype:any;
   constructor() { }
 
   ngOnInit(): void {

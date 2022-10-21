@@ -22,7 +22,6 @@
                 [class.errors]="RegisterForm.submitted && mobile.invalid" id="mobile"  pattern="^[0-9]*$" minlength="10" name="mobil" ngModel>
               <div *ngIf="RegisterForm.submitted && mobile.invalid" class="invalid-form">
                 <small *ngIf="mobile.errors?.['required']">The field is required</small>
-                <small *ngIf="mobile.errors?.['minlength']">The minlength 10 is required</small>
                 <small *ngIf="mobile.errors?.['pattern']">provide Valid Number</small>
               </div>
             </div>

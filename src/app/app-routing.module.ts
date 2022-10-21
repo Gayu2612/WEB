@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { MenuComponent } from './dashboard/menu/menu.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/auth/login', pathMatch: 'full' },
@@ -8,8 +9,13 @@ const routes: Routes = [
     loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
   },
   {
-    path: "dashboard",
-    loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule)
+    path: "dashboard",component:MenuComponent,
+    children:[
+      {
+        path:'admin',loadChildren:()=> import('./admin/admin.module').then(m=>m.AdminModule)
+      }
+    ]
+    // loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule)
   },
 ];
 

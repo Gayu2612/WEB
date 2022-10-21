@@ -14,7 +14,14 @@ export class LoginComponent implements OnInit {
   constructor(private authservice: AuthService,private router:Router) { }
 
   public login: Login = new Login();
+  public logintype:any;
+
   ngOnInit(): void {
+    console.log('kkkk');
+
+    this.logintype = localStorage.getItem('logintype')
+    console.log('logintypee',this.logintype);
+
   }
   postLogin() {
     // console.log('kkkk');
@@ -26,7 +33,9 @@ export class LoginComponent implements OnInit {
     // }
     this.authservice.postLogin(this.login).subscribe((res: any) => {
       console.log('login', res);
-      this.router.navigateByUrl('/dashboard')
+if( this.logintype == 'admin'){
+  this.router.navigateByUrl('/dashboard/admin')
+}
 
     })
     // this.toastr.success('Sucessfully Login')
