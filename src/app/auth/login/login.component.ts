@@ -35,6 +35,8 @@ export class LoginComponent implements OnInit {
       console.log('login', res);
 if( this.logintype == 'admin'){
   this.router.navigateByUrl('/dashboard/admin')
+}else{
+  this.router.navigateByUrl('/dashboard/user')
 }
 
     })

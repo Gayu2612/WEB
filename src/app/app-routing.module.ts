@@ -13,7 +13,11 @@ const routes: Routes = [
     children:[
       {
         path:'admin',loadChildren:()=> import('./admin/admin.module').then(m=>m.AdminModule)
+      },
+      {
+        path:'user',loadChildren:()=> import('./user/user.module').then(m=>m.UserModule)
       }
+
     ]
     // loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule)
   },
