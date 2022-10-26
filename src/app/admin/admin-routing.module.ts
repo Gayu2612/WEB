@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { TextComponent } from './components/text/text.component';
+import { ClothComponent } from './components/cloth/cloth.component';
 
 const routes: Routes = [
   {
-    path:'',component:TextComponent
+    path:'cloth',component:ClothComponent
   }
 ];
 
