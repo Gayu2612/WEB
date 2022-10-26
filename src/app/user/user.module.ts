@@ -2,12 +2,14 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { UserRoutingModule } from './user-routing.module';
-import { BookComponent } from './book/book.component';
+import { MenComponent } from './components/men/men.component';
+import { WomenComponent } from './components/women/women.component';
 
 
 @NgModule({
   declarations: [
-    BookComponent
+MenComponent,
+WomenComponent
   ],
   imports: [
     CommonModule,

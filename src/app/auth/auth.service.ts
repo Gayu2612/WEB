@@ -11,14 +11,15 @@ export class AuthService {
   private baseUrl = environment.apiUrl +'/register';
   private baseUrl1 = environment.apiUrl +'/login';
 
-  //  private currentUserSubject: BehaviorSubject<Login>;
-  //  public currentUser:Observable<Login>
+   private currentUserSubject: BehaviorSubject<Login>;
+   public currentUser:Observable<Login>
 
   public Userdetails: any;
+  // public isLoggedin: any;
 
   constructor(private http:HttpClient) {
-    // this.currentUserSubject = new BehaviorSubject<Login>(JSON.parse(localStorage.getItem('currentUser')||'-'));
-    // this.currentUser = this.currentUserSubject.asObservable();
+    this.currentUserSubject = new BehaviorSubject<Login>(JSON.parse(localStorage.getItem('currentUser') || '"-"'));
+    this.currentUser = this.currentUserSubject.asObservable();
   }
 
 
@@ -42,8 +43,9 @@ export class AuthService {
         localStorage.setItem('logintype',res?.result?.loginType)
         localStorage.setItem('token',res.result?.token);
         localStorage.setItem('currentUser',JSON.stringify(res.result?.userDetails))
+        localStorage.setItem('logged','true')
         let name = this.Userdetails?.userName
-        // this.currentUserSubject.next(this.UserDetails);
+        this.currentUserSubject.next(this.Userdetails);
       }
       return res;
     }))
@@ -52,10 +54,12 @@ export class AuthService {
   Logout(){
     localStorage.removeItem('currentUser')
     // localStorage.removeItem('logintype')
-    // localStorage.removeItem('token')
+    localStorage.removeItem('token')
+    localStorage.removeItem('logged')
+
   }
 
   authenticated(){
-    return this.Logout()
+    return !!localStorage.getItem('logged')
   }
 }

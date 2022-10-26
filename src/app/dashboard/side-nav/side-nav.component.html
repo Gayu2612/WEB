@@ -3,4 +3,17 @@
   <div class="Logo">
     <img src="assets/logo.jpg" alt="" class="ps-5">
   </div>
+  <div *ngIf="logintype=='admin'">
+  <div *ngFor="let admin of adminSection">
+     <h3 [routerLink]="admin?.url">{{admin?.title}}</h3>
+  </div>
+  </div>
+  <div *ngIf="logintype=='user'">
+    <div *ngFor="let user of userSection">
+       <h3>{{user?.title}}</h3>
+       <div *ngFor="let children of user?.children">
+        <h4 [routerLink]="children?.url">{{children?.title}}</h4>
+       </div>
+    </div>
+    </div>
 </div>

@@ -33,7 +33,8 @@ export class LoginComponent implements OnInit {
     // }
     this.authservice.postLogin(this.login).subscribe((res: any) => {
       console.log('login', res);
-if( this.logintype == 'admin'){
+if( res?.result?.loginType
+   == 'admin'){
   this.router.navigateByUrl('/dashboard/admin')
 }else{
   this.router.navigateByUrl('/dashboard/user')
