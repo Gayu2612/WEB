@@ -48,4 +48,14 @@ export class AuthService {
       return res;
     }))
   }
+
+  Logout(){
+    localStorage.removeItem('currentUser')
+    // localStorage.removeItem('logintype')
+    // localStorage.removeItem('token')
+  }
+
+  authenticated(){
+    return this.Logout()
+  }
 }

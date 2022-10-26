@@ -20,7 +20,7 @@ export class NavBarComponent implements OnInit {
 
   }
   Logout(){
-    localStorage.removeItem('currentUser')
+  this.authService.Logout()
     this.router.navigateByUrl('/auth/login')
   }
 }
