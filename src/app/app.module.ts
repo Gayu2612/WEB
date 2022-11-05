@@ -13,13 +13,15 @@ import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { JwtInterceptor } from './auth/helper/jwt.interceptor';
+import { DarkComponent } from './dark-mode/dark/dark.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
     SideNavComponent,
-    NavBarComponent
+    NavBarComponent,
+    DarkComponent
   ],
   imports: [
     BrowserModule,
