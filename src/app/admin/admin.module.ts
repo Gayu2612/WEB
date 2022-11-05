@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { AdminRoutingModule } from './admin-routing.module';
-import { ClothComponent } from './components/cloth/cloth.component';
+import { ClothListComponent } from './components/cloth/cloth-list/cloth-list.component';
+import { ClothViewComponent } from './components/cloth-view/cloth-view.component';
 
 
 @NgModule({
   declarations: [
-    ClothComponent
+   ClothListComponent,
+   ClothViewComponent
   ],
   imports: [
     CommonModule,

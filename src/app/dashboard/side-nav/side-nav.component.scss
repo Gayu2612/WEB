@@ -6,4 +6,24 @@
       width: 75%;
     }
   }
+
+  .user{
+    padding: 0px 50px 0px 50px;
+  }
+  .userContent{
+    height: 45px;
+    padding: 5px 70px 0px 70px;
+    font-family: "magistral Honesty italic.wolff";
+    border:3px solid #ff0066;
+    box-shadow: -2px 4px 0px 2px #ff0066;
+    border-radius: 30px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.3s;
+
+    &:hover{
+      background-color: #ff0066;
+      color: #fff;
+    }
+  }
 }

@@ -1,10 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ClothComponent } from './components/cloth/cloth.component';
+import { ClothViewComponent } from './components/cloth-view/cloth-view.component';
+import { ClothListComponent } from './components/cloth/cloth-list/cloth-list.component';
 
 const routes: Routes = [
   {
-    path:'cloth',component:ClothComponent
+    path:'',
+    component:ClothListComponent
+  },
+  {
+    path:'cloth/clothview',
+    component:ClothViewComponent
   }
 ];
 
