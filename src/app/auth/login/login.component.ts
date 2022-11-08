@@ -11,16 +11,16 @@ import { Login } from '../model/login';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private authservice: AuthService,private router:Router) { }
+  constructor(private authservice: AuthService, private router: Router) { }
 
   public login: Login = new Login();
-  public logintype:any;
+  public logintype: any;
 
   ngOnInit(): void {
     console.log('kkkk');
 
     this.logintype = localStorage.getItem('logintype')
-    console.log('logintypee',this.logintype);
+    console.log('logintypee', this.logintype);
 
   }
   postLogin() {
@@ -33,12 +33,11 @@ export class LoginComponent implements OnInit {
     // }
     this.authservice.postLogin(this.login).subscribe((res: any) => {
       console.log('login', res);
-if( res?.result?.loginType
-   == 'admin'){
-  this.router.navigateByUrl('/dashboard/admin')
-}else{
-  this.router.navigateByUrl('/dashboard/user')
-}
+      if (res?.result?.loginType == 'admin') {
+        this.router.navigateByUrl('/dashboard/admin/clothlist')
+      } else {
+        this.router.navigateByUrl('/dashboard/user')
+      }
 
     })
     // this.toastr.success('Sucessfully Login')
