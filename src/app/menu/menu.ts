@@ -2,7 +2,7 @@ export const Admin=[
   {
     id:'cloth',
     title:'Cloth',
-    url:'admin/cloth'
+    url:'admin'
   }
 ]
 
