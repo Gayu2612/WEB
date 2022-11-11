@@ -35,17 +35,19 @@ export class ClothViewComponent implements OnInit {
 
   saveCloth(){
 
-    if(this.cloth._id){
+    if(this.id){
+      this.button='Update'
       this.clothService.updateCloth(this.cloth).subscribe((res:any)=>{
         console.log('res',res);
-        this.button='Update'
+
       })
     }
     else
     {
+      this.button='Save'
       this.clothService.ClothSave(this.cloth).subscribe((res:any)=>{
         console.log('data',res);
-        this.button='Save'
+
       })
 
     }
