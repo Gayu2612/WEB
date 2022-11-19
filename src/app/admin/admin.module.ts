@@ -5,6 +5,9 @@ import { ClothListComponent } from './components/cloth-list/cloth-list.component
 import { ClothViewComponent } from './components/cloth-view/cloth-view.component';
 import { FormsModule } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { ModalModule } from 'ngb-modal';
+import { NgbModal, NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 
 @NgModule({
@@ -16,8 +19,8 @@ import { NgSelectModule } from '@ng-select/ng-select';
     CommonModule,
     AdminRoutingModule,
     FormsModule,
-    NgSelectModule
-
+    NgSelectModule,
+    NgbModalModule
   ]
 })
 export class AdminModule { }

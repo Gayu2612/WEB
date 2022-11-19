@@ -26,9 +26,8 @@ export class CothService {
 
   }
 
-  updateCloth(id:any){
-    const params = new HttpParams().set('_id',id)
-    return this.http.put(`${this.baseUrl}`,{params})
+  updateCloth(data:any){
+    return this.http.put(`${this.baseUrl}`,data)
   }
 
 }
