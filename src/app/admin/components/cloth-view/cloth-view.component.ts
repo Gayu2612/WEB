@@ -21,22 +21,26 @@ export class ClothViewComponent implements OnInit {
 
     this.activateroute.queryParams.subscribe((res:any)=>{
       console.log('res',res);
-
       this.id=res.id
-      console.log('edit',this.id);
+      if(res.id){
+      this.button='Update'
+        this.getSingleCloth();
+      }else{
+      this.button='Save';
+      }
     })
    }
 
   ngOnInit(): void {
-      this.getSingleCloth();
   }
 
  public type=['Men','Women']
 
   saveCloth(){
+    console.log('ryrth',this.cloth,this.cloth._id);
 
-    if(this.id){
-      this.button='Update'
+    if(this.cloth._id){
+
       this.clothService.updateCloth(this.cloth).subscribe((res:any)=>{
         console.log('res',res);
 
@@ -44,12 +48,12 @@ export class ClothViewComponent implements OnInit {
     }
     else
     {
-      this.button='Save'
+
       this.clothService.ClothSave(this.cloth).subscribe((res:any)=>{
         console.log('data',res);
 
       })
-
+      this.button='Save'
     }
   }
 

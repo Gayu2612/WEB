@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CothService } from 'src/app/admin/service/coth.service';
 
 @Component({
@@ -9,8 +10,9 @@ import { CothService } from 'src/app/admin/service/coth.service';
 export class ClothListComponent implements OnInit {
 
   public clothList:any;
-
-  constructor(private clothService:CothService) { }
+	closeResult = '';
+  public id:any;
+  constructor(private clothService:CothService,private modalService: NgbModal) { }
 
   ngOnInit(): void {
     this.getAllcloth()
@@ -24,6 +26,19 @@ export class ClothListComponent implements OnInit {
   })
  }
 
+ open(model:any) {
+  // console.log('id',id);
+  this.modalService.open(model, { ariaLabelledBy: 'modal-basic-title' }).result.then(
 
-
+    (result) => {
+      this.id = `Closed with: ${result}`;
+    },
+    (reason) => {
+      // this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    },
+  );
+}
+delete(){
+  
+}
 }

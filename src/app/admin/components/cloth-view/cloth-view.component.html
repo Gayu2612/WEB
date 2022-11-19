@@ -1,7 +1,7 @@
 <section id="clothView">
   <div class="container">
     <h3 class="m-3">clothView</h3>
-   <form #clothForm action="ngform" (ngSubmit)="saveCloth()">
+   <form #clothForm action="ngform">
     <div class="row">
       <div class="col-6">
         <div class="form-group">
@@ -62,7 +62,7 @@
       </div>
     </div>
     <div >
-    <button   type="submit" class="btn">{{button}}</button>
+    <button  routerLink="/dashboard/admin/clothlist" (click)="saveCloth()" type="submit" class="btn">{{button}}</button>
   </div>
   </form>
   </div>
