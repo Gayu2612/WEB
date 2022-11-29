@@ -16,7 +16,7 @@ export class JwtInterceptor implements HttpInterceptor {
   constructor(private authentication:AuthService) {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    console.log(request);
+    // console.log(request);
 
     const token =localStorage.getItem('token')
     // const token = localStorage.getItem('token');

@@ -7,27 +7,29 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class CothService {
-  private baseUrl = environment.apiUrl +'/cloth';
+  private baseUrl = environment.apiUrl + '/cloth';
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  ClothSave(data:any){
+  ClothSave(data: any) {
 
-    return this.http.post(`${this.baseUrl}`,data)
+    return this.http.post(`${this.baseUrl}`, data)
   }
 
-  getAllCloth(){
+  getAllCloth() {
     return this.http.get(`${this.baseUrl}`)
   }
 
-  getSingleCloth(id:any){
-    const params = new HttpParams().set('_id',id)
-    return this.http.get(`${this.baseUrl}/getSingleCloth`,{params})
+  getSingleCloth(id: any) {
+    const params = new HttpParams().set('_id', id)
+    return this.http.get(`${this.baseUrl}/getSingleCloth`, { params })
 
   }
-
-  updateCloth(data:any){
-    return this.http.put(`${this.baseUrl}`,data)
+  updateCloth(data: any) {
+    return this.http.put(`${this.baseUrl}`, data)
   }
-
+  deleteCloth(id: any) {
+    const params = new HttpParams().set('_id', id)
+    return this.http.delete(`${this.baseUrl}/deleteCloth`, { params })
+  }
 }
