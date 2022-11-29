@@ -70,3 +70,6 @@
 		<button type="button" class="btn btn-outline-dark" (click)="deleteCloth()">delete</button>
  </div>
 </ng-template>
+<button (click)="myFlag = !myFlag">Toggle</button>
+<div *ngIf="myFlag" style="color:green">Hey I'm true</div>
+<div *ngIf="!myFlag" style="color:red">Hey I'm false</div>

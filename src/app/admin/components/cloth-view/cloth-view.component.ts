@@ -65,13 +65,6 @@ export class ClothViewComponent implements OnInit {
      })
   }
 
-
-  // edit(id:any){
-  //   this.clothService.updateCloth().subscribe((res:any)=>{
-  //     console.log('res',res);
-
-  //   })
-  // }
   }
 
 

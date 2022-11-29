@@ -12,6 +12,7 @@ export class ClothListComponent implements OnInit {
   public clothList: any;
   closeResult = '';
   public id: any;
+  myFlag=true;
   constructor(private clothService: CothService, private modalService: NgbModal) { }
 
   ngOnInit(): void {
